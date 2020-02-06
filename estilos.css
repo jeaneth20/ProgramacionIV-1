@@ -43,5 +43,6 @@ input[type=url]:valid,
 input[type=tel]:valid{
     background-color: blue;
     color: white;
+    border: blue;
 }
 
