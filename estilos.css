@@ -11,7 +11,6 @@
     border: 1px, solid #1f53c5;
 
 }
-
 .body{
     background-color: #164e6e;;
 }
@@ -24,7 +23,6 @@
     margin-left: 5px;
     text-align: center;
 }
-
 .controlsection{
     background:#24303c;
     width: 500px;
@@ -44,5 +42,10 @@
     font-style: italic;
     font-size: 100%;
     width: 100%;
+}
+
+input [type=submit]:hover{
+    background-color: red;
+    color: white;
 }
 
