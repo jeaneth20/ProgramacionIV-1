@@ -6,33 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BIENVENIDO A PROGRAMACION IV</title>
     <link rel="stylesheet" href="estilos.css">
-
-
 </head>
 <body>
-    <h1>REGISTRO DE ESTUDIANTES</h1>
-    
-    <label>Nombre:</label>
-    <input type="text" required pattern="[a-zA-ZñÑ ]{3,60}" size="20"><br>
-    <br>
+    <section class="controlsection">
+        <h1 class="controltitulo">REGISTRO DE ESTUDIANTES</h1>
+        <input class="controles" type="text" required pattern="[a-zA-ZñÑ ]{3,60}" size="20" placeholder="Nombre"><br>
+        <br>
 
-    <label for="Apellido"> Apellido: </label>
-    <input type="text" required pattern="[a-zA-ZñÑ ]{3,60} " size="20" ><br>
-    <br>
+        <input class="controles" type="text" required pattern="[a-zA-ZñÑ ]{3,60} " size="20" placeholder="Apellido"><br>
+        <br>
 
-    <label for="Nacimiento">Fecha de Nacimiento: </label>
-    <input type="date" required><br>
-    <br>
+        <label for="Fecha de Nacimiento"></label>
+        <input class="controles" type="date" required ><br>
+        <br>
 
-    <label for="telefono">Telefono: </label>
-    <input type="tel" required placeholder="0000-0000"><br>
-    <br>
+        <input class="controles" type="tel" required placeholder="TEL. 0000-0000"><br>
+        <br>
 
-    <label for="Direccion">Direccion: </label>
-    <input type="text" required pattern="[a-zA-ZñÑ 0-9]{5,60} "><br>
-    <br>
+        <input class="controles" type="text" required pattern="[a-zA-ZñÑ 0-9]{5,60} " placeholder="Direccion"><br>
+        <br>
 
-    <input type="submit" value="Guardar">
+        <input class="controlboton" type="submit" value="Guardar">
+
+    </section>
 
 </body>
 </html>
