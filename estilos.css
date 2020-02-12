@@ -1,14 +1,19 @@
 
 .controles{
-    background-color: rgb(10, 10, 110);
+    background-color: #24303c;
     color: white;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     margin-top: 5px;
     margin-left: 5px;
     text-align: center;
     width: 92%;
-    align-items: center;
+    border: 1px, solid #1f53c5;
+
+}
+
+.body{
+    background-color: #164e6e;;
 }
 
 .controltitulo{
@@ -21,12 +26,13 @@
 }
 
 .controlsection{
-    background:rgb(10, 10, 110);
+    background:#24303c;
     width: 500px;
     height: 400px;
     border-radius: 10px;
     margin: auto;
     margin-top: 50px;
+    padding: 30px;
 }
 
 .controlboton{
