@@ -1,64 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Registro Estudiantes Offline</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='estilos.css'>
-    <script src='app.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bienvenido a Programacion IV</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
-<body class="body">
-    <div>
-        <form class="controlform" id="frmAlumnos">
-            <h1 class="controltitulo">REGISTRO DE ESTUDIANTES</h1>
-
-            <div class="centrarH">
-                <input type="text" required="required" id="txtcodigo" pattern="^[A-Z]{4}[0-9]{6}" size="20"
-                    placeholder="Codigo">
-                <input class="buttonBuscar" type="button" value="Buscar" id="btnbuscar">
-                <br>
-                <br>
+<body>
+    <div class="container">
+        <form id="frmConversores">
+            <div class="row row-cols-2 p-2">
+                <div class="col text-center bg-info text-white">
+                    APP CONVERSORES
+                </div>
             </div>
-
-            <div>
-                <input type="text" required="required" id="txtnombre" pattern="[a-zA-ZñÑ ]{3,60}" size="20"
-                    placeholder="Nombre"><br>
-                <br>
+            <div class="row row-cols-4 p-2">
+                <div class="col">
+                    DE: <select id="cboDe" class="form-control">
+                        <option value="dolar">Dolar</option>
+                        <option value="euro">Euros</option>
+                        <option value="quetzal">Quetzales</option>
+                        <option value="lempira">Lempira</option>
+                        <option value="cordoba">Cordoba</option>
+                    </select>
+                </div>
+                <div class="col">
+                    A: <select id="cboA" class="form-control">
+                        <option value="dolar">Dolar</option>
+                        <option value="euro">Euros</option>
+                        <option value="quetzal">Quetzales</option>
+                        <option value="lempira">Lempira</option>
+                        <option value="cordoba">Cordoba</option>
+                    </select>
+                </div>
             </div>
-
-            <div>
-                <input type="text" required="required" id="txtapellido" pattern="[a-zA-ZñÑ ]{3,60}" size="20"
-                    placeholder="Apellido"><br>
-                <br>
+            <div class="row row-cols-4 p-2">
+                <div class="col text-center">
+                    <input type="text" required="required" pattern="[0-9.]{1,}" placeholder="cantidad"
+                        id="txtCantidadConversores" class="form-control">
+                </div>
+                <div class="col text-center">
+                    <p class="bg-success text-white" id="lblRespuesta">Respuesta: ?</p>
+                </div>
             </div>
-
-            <div>
-                <label for="Fecha de Nacimiento"></label>
-                <input type="date" required="required" id="txtfecha"><br>
-                <br>
-            </div>
-
-            <div>
-                <input type="text" required="required" id="txttel" placeholder="TEL. 0000-0000"
-                    pattern="[0-9]{4}-[0-9]{4}"><br>
-                <br>
-            </div>
-
-            <div>
-                <input type="text" required="required" id="txtdireccion" placeholder="Direccion"><br>
-                <br>
-            </div>
-
-            <div>
-                <input type="submit" id="btnguardar" value="Guardar">
-                <input type="button" id="btnnuevo" value="Nuevo">
+            <div class="row row-cols-2">
+                <div class="col text-center"><input type="submit" id="btnConvertirMoneda" class="btn btn-primary"></div>
             </div>
         </form>
     </div>
-
+    <script src="app.js"></script>
 </body>
 
 </html>
