@@ -12,7 +12,7 @@ frmAlumnos.addEventListener("submit",e=>{
         telefono: $("#txtTelefonoAlumno").value
 
     }
-
+    
     fetch(`private/modulos/alumnos/procesos.php?proceso=recibirDatos&alumno=${JSON.stringify(alumnos)}`).then(resp=>resp.json()).then(resp=>{
 
         //console.log(resp)
