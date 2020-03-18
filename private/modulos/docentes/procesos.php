@@ -9,10 +9,10 @@ if(isset($_GET['proceso']) && strlen($_GET['proceso'])>0){
     $proceso=$_GET['proceso'];
 }
 
-$alumno->$proceso($_GET['docente']);
-print_r(json_encode($alumno->respuesta));
+$docentes->$proceso($_GET['docente']);
+print_r(json_encode($docentes->respuesta));
 
-class alumno{
+class docentes{
     private $datos=array(),$bd;
     public $respuesta=['msg'=>'correcto'];
 
@@ -20,8 +20,8 @@ class alumno{
         $this->bd=$bd;
     }
 
-    public function recibirDatos($docente){
-        $this->datos=json_decode($docente, true);
+    public function recibirDatos($docentes){
+        $this->datos=json_decode($docentes, true);
         $this->validar_datos();
     }
 
@@ -38,14 +38,14 @@ class alumno{
             $this->respuesta['msg']='Por Favor Ingrese la direccion del Docente';
 
         }
-        $this->almacenar_docente;
+        $this->almacenar_docente();
     }
 
     private function almacenar_docente(){
         if($this->respuesta['msg']==='correcto'){
             if($this->datos['accion']==="nuevo"){
                 $this->bd->consultas('
-                INSERT INTO alumnos (codigo,nombre,direccion,telefono) VALUES(
+                INSERT INTO docentes (codigo,nombre,direccion,telefono) VALUES(
                     "'. $this->datos['codigo'] .'",
                     "'. $this->datos['nombre'] .'",
                     "'. $this->datos['direccion'] .'",

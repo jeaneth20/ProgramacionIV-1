@@ -2,9 +2,9 @@ var $ = el =>document.querySelector(el);
 document.addEventListener("DOMContentLoaded", event=>{
     let mostrarVista = document.getElementsByName('navOption'); /* RECOGE LOS ELEMENTOS EN UN ARRAY */
 
-    console.log(mostrarVista);
+    //console.log(mostrarVista);
     let modulo;
-    mostrarVista.forEach(element => {       /*RECORRE LOS NAV PARA IDENTIFICAR EL EVENTO CLICK Y OBTENER EL MODULO */
+    mostrarVista.forEach(element => {   /*RECORRE LOS NAV PARA IDENTIFICAR EL EVENTO CLICK Y OBTENER EL MODULO */
         element.addEventListener('click', e=>{
             e.stopPropagation();
             modulo = e.toElement.dataset.modulo;
