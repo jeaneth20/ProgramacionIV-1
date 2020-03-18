@@ -1,15 +1,15 @@
 <?php
 /**CLASE PRINCIPAL DE CONEXION A LA BASE DE DATOS DESDE PHP -> MYSQL */
 
-class DB 
+class BD 
 {
    private $conexion, $result;
-   public function DB($server, $user, $pass, $db){
-       $this->$conexion=mysqli_connect($server, $user, $pass, $db) or die(mysqli_error('No se pudo Conectar al server de BD'));
+   public function BD($server, $user, $pass, $db){
+       $this->conexion=mysqli_connect($server, $user, $pass, $db) or die(mysqli_error('No se pudo Conectar al server de BD'));
 
    }
 
-   public function consulta($sql){
+   public function consultas($sql){
        $this->result = mysqli_query($this->conexion, $sql) or die(mysqli_error());
    }
 

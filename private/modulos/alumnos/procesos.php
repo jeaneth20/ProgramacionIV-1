@@ -13,11 +13,11 @@ $alumno->$proceso($_GET['alumno']);
 print_r(json_encode($alumno->respuesta));
 
 class alumno{
-    private $datos=array(),$db;
+    private $datos=array(),$bd;
     public $respuesta=['msg'=>'correcto'];
 
-    public function __construct($db){
-        $this->db=$db;
+    public function __construct($bd){
+        $this->bd=$bd;
     }
 
     public function recibirDatos($alumno){
@@ -43,13 +43,13 @@ class alumno{
 
     private function almacenar_alumno(){
         if($this->respuesta['msg']==='correcto'){
-            if($this->respuesta['accion']==="nuevo"){
-                $this->db->consultas('
-                INSERT INTO alumnos (codigo, nombre, direccion, telefono) VALUES(
-                    "'.$this->datos['codigo'] .'",
-                    "'.$this->datos['nombre'] .'",
-                    "'.$this->datos['direccion'] .'",
-                    "'.$this->datos['telefono'] .'"
+            if($this->datos['accion']==="nuevo"){
+                $this->bd->consultas('
+                INSERT INTO alumnos (codigo,nombre,direccion,telefono) VALUES(
+                    "'. $this->datos['codigo'] .'",
+                    "'. $this->datos['nombre'] .'",
+                    "'. $this->datos['direccion'] .'",
+                    "'. $this->datos['telefono'] .'"
                     )
                 ');
                 $this->respuesta['msg']='Registro Insertado con Exito';
