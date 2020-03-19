@@ -25,6 +25,7 @@ function apuntarPeticion(modulo) {
             break;
         default:
             alert('MODULO VACIO');
+            break;
     }
     fetch(peticion).then(resp => resp.text()).then(resp => {
         $(`#vistas-${modulo}`).innerHTML = resp;
