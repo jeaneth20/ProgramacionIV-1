@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bienvenido a Programacion IV</title>
+    <link rel="stylesheet" href="public/css/estilos.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -20,7 +21,7 @@
                         <a href="#" class="nav-link">INICIO <span class="sr-only">(current)</span> </a>
                     </li>
                     <li class="nav-item">
-                        <a name="navOption" href="#" class="nav-link mostrar-alumnos" data-modulo="alumnos">ALUMNOS</a>
+                        <a name="navOption" href="#" class="nav-link mostrar-alumnos" data-modulo="alumnos" data-form="alumnos">ALUMNOS</a>
                     </li>
                     <li class="nav-item">
                         <a name="navOption" href="#" class="nav-link mostrar-docentes" data-modulo="docentes"
@@ -46,17 +47,17 @@
             </div>
         </nav>
             <div id="modulos">
-                <div id="vistas-alumnos"></div> <span><div id="vistas-docentes"></div></span>
-                
-                <div id="vistas-materias"></div>
-                <div id="vistas-matricula"></div>
-                <div id="vistas-inscripcion"></div>
-                <div id="vistas-notas"></div>
+                <div class="modulos" id="vistas-alumnos"></div>
+                <div class="modulos" id="vistas-docentes"></div>
+                <div class="modulos" id="vistas-materias"></div>
+                <div class="modulos" id="vistas-matricula"></div>
+                <div class="modulos" id="vistas-inscripcion"></div>
+                <div class="modulos" id="vistas-notas"></div>
             </div>
             
     </div>
 
-    <script src="public/js/app.js"></script>
+    <script type="modulo" src="public/js/app.js"></script>
 
 </body>
 
