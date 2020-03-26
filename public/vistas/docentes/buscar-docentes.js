@@ -14,9 +14,22 @@ export function modulo() {
         $("#txtTelefonoDocentes").value = docente.telefono;
     };
     let eliminarDocente = (id_docente) => {
-        fetch(`private/modulos/docentes/procesos.php?proceso=eliminarDocente&docente=${id_docente}`).then(resp => resp.json()).then(resp => {
-            traerDatos('');
+
+        let dialog = document.getElementById("dialogDocentes");
+        dialog.close();
+        dialog.showModal();
+
+        document.getElementById("btnCancelarDocentes").addEventListener('click', event => {
+            dialog.close();
         });
+
+        document.getElementById("btnConfirmarDocentes").addEventListener('click', event => {
+            fetch(`private/modulos/docentes/procesos.php?proceso=eliminarDocente&docente=${id_docente}`).then(resp => resp.json()).then(resp => {
+                traerDatos('');
+            });
+            dialog.close();
+        })
+        
     };
     let traerDatos = (valor) => {
     

@@ -13,10 +13,22 @@ export function modulo() {
         $("#txtTelefonoAlumno").value = alumno.telefono;
     };
     let eliminarAlumno = (idAlumno) => {
-        fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp => resp.json()).then(resp => {
-            traerDatos('');
+        let dialog = document.getElementById("diaConfirmacion");
+        dialog.close();
+        dialog.showModal();
+
+        document.getElementById("btnCancelar").addEventListener('click', event=>{
+            dialog.close();
         });
+
+        document.getElementById("btnConfirmar").addEventListener('click', event=>{
+            fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp => resp.json()).then(resp => {
+                traerDatos('');
+                dialog.close();
+            });
+        })
     };
+
     let traerDatos = (valor) => {
         fetch(`private/modulos/alumnos/procesos.php?proceso=buscarAlumno&alumno=${valor}`).then(resp => resp.json()).then(resp => {
             //console.log(resp);
