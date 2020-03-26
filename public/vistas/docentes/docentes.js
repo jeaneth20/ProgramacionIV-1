@@ -13,8 +13,9 @@ export function modulo(){
             direccion: $("#txtDireccionDocentes").value,
             dui: $("#txtDuiDocentes").value,
             telefono: $("#txtTelefonoDocentes").value
-
         }
+
+        //console.log(docentes);
 
         fetch(`private/modulos/docentes/procesos.php?proceso=recibirDatos&docente=${JSON.stringify(docentes)}`).then(resp => resp.json()).then(resp => {
 
