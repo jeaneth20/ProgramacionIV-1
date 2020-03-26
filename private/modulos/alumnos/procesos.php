@@ -73,7 +73,7 @@ class alumno{
         FROM alumnos
         WHERE alumnos.codigo LIKE "%'.$valor.'%" OR alumnos.nombre LIKE "%'.$valor.'%"
         ');
-        return $this->respuesta=$this->bd->obtenerDatos();
+        return $this->respuesta=$this->bd->obtener_datos();
     }
 
     public function eliminarAlumno($idAlumno=''){

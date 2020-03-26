@@ -4,7 +4,7 @@
         <div class="card-header">
             MANTENIMIENTO DE DOCENTES
 
-            <button type="button" class="close" aria-label="Close">
+            <button type="button" id="btn-close-docentes" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -52,6 +52,16 @@
                     </div>
                 </div>
             </div>
+            <div class="row row-cols-1 p-2">
+                <div class="row-col">
+                    <div class="col">
+                        DUI:
+                    </div>
+                    <div class="col">
+                        <input type="text" required id="txtDuiDocentes" placeholder="00000000-0" class="form-control">
+                    </div>
+                </div>
+            </div>
 
             <div class="rows row-cols-1 p-2">
                 <div class="row-col text-center">
@@ -59,6 +69,8 @@
                         <input type="submit" id="btnGuardarDocentes" class="btn btn-outline-primary text-white"
                             value="GUARDAR">
                         <input type="reset" id="" class="btn btn-outline-warning text-white" value="LIMPIAR">
+                        <input type="button" class="btn btn-outline-success mostrar-buscar-docentes text-white"
+                            data-modulo="docentes" data-form="buscar-docentes" value="BUSCAR">
                     </div>
                 </div>
             </div>

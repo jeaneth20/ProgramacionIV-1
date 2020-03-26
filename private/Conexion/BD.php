@@ -13,7 +13,7 @@ class BD
        $this->result = mysqli_query($this->conexion, $sql) or die(mysqli_error());
    }
 
-   public function obtener_data(){
+   public function obtener_datos(){
        return $this->result->fetch_all(MYSQLI_ASSOC);
    }
 
