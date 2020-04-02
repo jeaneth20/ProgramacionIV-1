@@ -25,5 +25,6 @@ export function modulo() {
     frmAlumnos.addEventListener("reset", e => {
         $("#frm-alumnos").dataset.accion = 'nuevo';
         $("#frm-alumnos").dataset.idalumno = '';
+        $("#respuestaAlumno").innerHTML=" ";
     });
 }
