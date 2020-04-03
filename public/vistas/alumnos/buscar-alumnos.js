@@ -15,9 +15,21 @@ var appBuscarAlumnos = new Vue({
                 appalumno.alumno.accion = 'modificar';
                 },
                 eliminarAlumno: function (idAlumno) {
-                    fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp => resp.json()).then(resp => {
-                        this.buscarAlumno();
+                    let dialog = document.getElementById("dialogAlumno");
+                    dialog.close();
+                    dialog.showModal();
+
+                    $(`#btnCancelarAlumno`).click(e => {
+                        dialog.close();
                     });
+
+                    $(`#btnConfirmarAlumno`).click(e => {
+                         fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp => resp.json()).then(resp => {
+                             this.buscarAlumno();
+                         });
+                        dialog.close();
+                    });
+                   
                 }
             },
     created: function () {
