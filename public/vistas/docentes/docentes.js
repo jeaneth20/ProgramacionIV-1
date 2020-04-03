@@ -1,34 +1,30 @@
-export function modulo(){
-    var $ = el => document.querySelector(el),
-        frmDocentes = $("#frmDocentes");
-    frmDocentes.addEventListener("submit", e => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        let docentes = {
-            accion: frmDocentes.dataset.accion,
-            id_docente: frmDocentes.dataset.id_docente,
-            codigo: $("#txtCodigoDocentes").value,
-            nombre: $("#txtNombreDocentes").value,
-            direccion: $("#txtDireccionDocentes").value,
-            dui: $("#txtDuiDocentes").value,
-            telefono: $("#txtTelefonoDocentes").value
+var appdocente = new Vue({
+    el: '#frmDocentes',
+    data: {
+        docente: {
+            id_docente: 0,
+            accion: 'nuevo',
+            codigo: '',
+            nombre: '',
+            direccion: '',
+            dui: '',
+            telefono: '',
+            msg: ''
         }
-
-        //console.log(docentes);
-
-        fetch(`private/modulos/docentes/procesos.php?proceso=recibirDatos&docente=${JSON.stringify(docentes)}`).then(resp => resp.json()).then(resp => {
-
-            //console.log(resp)
-            $("#respuestaDocente").innerHTML = `
-            <div class="alert alert-success" role="alert">
-            ${resp.msg}
-            </div>
-            `;
-        });
-    });
-    frmDocentes.addEventListener("reset", e => {
-        $("#frmDocentes").dataset.accion = 'nuevo';
-        $("#frmDocentes").dataset.id_docente = '';
-    });
-}
+    },
+    methods: {
+        guardarDocente: function () {
+            fetch(`private/modulos/docentes/procesos.php?proceso=recibirDatos&docente=${JSON.stringify(this.docente)}`).then(resp => resp.json()).then(resp => {
+                this.docente.msg = resp.msg;
+                this.docente.id_docente = 0;
+                this.docente.codigo = '';
+                this.docente.nombre = '';
+                this.docente.direccion = '';
+                this.docente.telefono = '';
+                this.docente.dui = '';
+                this.docente.accion = 'nuevo';
+                appBuscarDocentes.buscarDocente();
+            });
+        }
+    }
+});

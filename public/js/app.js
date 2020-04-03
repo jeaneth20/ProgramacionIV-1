@@ -5,7 +5,7 @@ function init() {
 
         $(`#vistas-${form}`).load(`public/vistas/${modulo}/${form}.html`, function () {
             $(`#btn-close-${form}`).click(() => {
-                $(`#vista-${form}`).html("");
+                $(`#vistas-${form}`).html("");
             });
             init();
         }).draggable();
