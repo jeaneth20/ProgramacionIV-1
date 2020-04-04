@@ -11,8 +11,8 @@ var appBuscarAlumnos = new Vue({
                         });
                 },
                 modificarAlumno: function (alumno) {
-                appalumno.alumno = alumno;
-                appalumno.alumno.accion = 'modificar';
+                    appalumno.alumno = alumno;
+                    appalumno.alumno.accion = 'modificar';
                 },
                 eliminarAlumno: function (idAlumno) {
                     let dialog = document.getElementById("dialogAlumno");
