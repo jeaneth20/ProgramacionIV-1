@@ -26,6 +26,7 @@ var appBuscarAlumnos = new Vue({
                     $(`#btnConfirmarAlumno`).click(e => {
                          fetch(`private/modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp => resp.json()).then(resp => {
                              this.buscarAlumno();
+                             appalumno.limpiarAlumno();
                          });
                         dialog.close();
                     });

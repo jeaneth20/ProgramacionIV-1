@@ -16,7 +16,6 @@ var appalumno = new Vue({
             fetch(`private/modulos/alumnos/procesos.php?proceso=recibirDatos&alumno=${JSON.stringify(this.alumno)}`).then(resp => resp.json()).then(resp => {
                 this.alumno.msg = resp.msg;
                 this.limpiarAlumno()
-                appBuscarAlumnos.buscarAlumno();
             });
         },
         limpiarAlumno: function(){
@@ -26,6 +25,7 @@ var appalumno = new Vue({
             this.alumno.direccion = '';
             this.alumno.telefono = '';
             this.alumno.accion = 'nuevo';
+            appBuscarAlumnos.buscarAlumno();
         }
     }
 });
