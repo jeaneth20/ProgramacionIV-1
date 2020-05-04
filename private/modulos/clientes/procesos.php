@@ -1,7 +1,7 @@
 <?php
 
 include('../../Config/config.php');
-$alumno= new alumno($conexion);
+$cliente= new cliente($conexion);
 
 $proceso='';
 
@@ -9,10 +9,10 @@ if(isset($_GET['proceso']) && strlen($_GET['proceso'])>0){
     $proceso=$_GET['proceso'];
 }
 
-$alumno->$proceso($_GET['alumno']);
-print_r(json_encode($alumno->respuesta));
+$cliente->$proceso($_GET['cliente']);
+print_r(json_encode($cliente->respuesta));
 
-class alumno{
+class cliente{
     private $datos=array(),$bd;
     public $respuesta=['msg'=>'correcto'];
 
@@ -20,67 +20,67 @@ class alumno{
         $this->bd=$bd;
     }
 
-    public function recibirDatos($alumno){
-        $this->datos=json_decode($alumno, true);
+    public function recibirDatos($cliente){
+        $this->datos=json_decode($cliente, true);
         $this->validar_datos();
     }
 
     private function validar_datos(){
-        if(empty($this->datos['codigo'])){
-            $this->respuesta['msg']='Por Favor Ingrese el codigo del estudiante';
+        if(empty($this->datos['dui'])){
+            $this->respuesta['msg']='Por Favor Ingrese el DUI del cliente';
         
         }
         if(empty($this->datos['nombre'])){
-            $this->respuesta['msg']='Por Favor Ingrese el nombre del estudiante';
+            $this->respuesta['msg']='Por Favor Ingrese el nombre del cliente';
 
         }
         if(empty($this->datos['direccion'])){
-            $this->respuesta['msg']='Por Favor Ingrese la direccion del estudiante';
+            $this->respuesta['msg']='Por Favor Ingrese la direccion del cliente';
 
         }
-        $this->almacenar_alumno();
+        $this->almacenar_cliente();
     }
 
-    private function almacenar_alumno(){
+    private function almacenar_cliente(){
         if($this->respuesta['msg']==='correcto'){
             if($this->datos['accion']==="nuevo"){
                 $this->bd->consultas('
-                INSERT INTO alumnos (codigo,nombre,direccion,telefono) VALUES(
-                    "'. $this->datos['codigo'] .'",
+                INSERT INTO clientes (nombre,direccion,telefono,dui) VALUES(
                     "'. $this->datos['nombre'] .'",
                     "'. $this->datos['direccion'] .'",
-                    "'. $this->datos['telefono'] .'"
+                    "'. $this->datos['telefono'] .'",
+                    "'. $this->datos['dui'] .'"
                     )
                 ');
                 $this->respuesta['msg']='Registro Insertado con Exito';
             }else if($this->datos['accion']==='modificar'){
                 $this->bd->consultas('
-                UPDATE alumnos SET 
-                codigo= "'. $this->datos['codigo'].'",
+                UPDATE clientes SET 
                 nombre= "'. $this->datos['nombre'].'",
                 direccion= "'. $this->datos['direccion'].'",
-                telefono= "'.$this->datos['telefono'].'"
-                WHERE idAlumno="'. $this->datos['idAlumno'].'"
+                telefono= "'.$this->datos['telefono'].'",
+                dui= "'.$this->datos['dui'].'"
+                WHERE idCliente="'. $this->datos['idCliente'].'"
                 ');
                 $this->respuesta['msg']='Registro Actualizado con Exito';
             }
         }
     }
 
-    public function buscarAlumno($valor=''){
+    public function buscarCliente($valor=''){
         $this->bd->consultas('
-        SELECT alumnos.idAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
-        FROM alumnos
-        WHERE alumnos.codigo LIKE "%'.$valor.'%" OR alumnos.nombre LIKE "%'.$valor.'%"
+        SELECT clientes.idCliente, clientes.nombre, clientes.direccion, clientes.telefono, clientes.dui
+        FROM clientes
+        WHERE clientes.nombre LIKE "%'.$valor.'%" OR clientes.direccion LIKE "%'.$valor.'%" OR clientes.dui LIKE "%'.$valor.'%"
         ');
         return $this->respuesta=$this->bd->obtener_datos();
     }
 
-    public function eliminarAlumno($idAlumno=''){
+    public function eliminarCliente($idCliente=''){
         $this->bd->consultas('
-        DELETE alumnos 
-        FROM alumnos
-        WHERE alumnos.idAlumno="'.$idAlumno.'"
+        DELETE clientes 
+        FROM clientes
+        WHERE clientes.idCliente="'.$idCliente.'"
         ');
         $this->respuesta['msg']="Registro Eliminado con Exito";
     }
