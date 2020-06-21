@@ -1,4 +1,4 @@
-#Practica
+#Parcial
 from facebook_scraper import get_posts
 import csv
 
